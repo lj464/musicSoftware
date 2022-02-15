@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "musc-item":"../../components/music-item/index"
-  },
-  "enablePullDownRefresh":true,
-  "backgroundTextStyle":"dark"
-}

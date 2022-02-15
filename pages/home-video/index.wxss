@@ -1,1 +1,12 @@
-/* pages/home-video/index.wxss */
+/* pages/home-music/index.wxss */
+.ljimagecontet {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.contentItem {
+    width: 48%;
+}
+.box {
+    height: 1090rpx;
+}
