@@ -1,0 +1,9 @@
+<!--pages/home-music/index.wxml-->
+
+<view>
+        <view class="ljimagecontet">
+            <view wx:for="{{musiLists}}" wx:key='index' class="contentItem" >
+                <musc-item item='{{item}}' bindtap="jumpDetail" data-id="{{item.id}}" />
+            </view>
+        </view>
+</view>
