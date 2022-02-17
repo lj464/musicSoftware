@@ -1,2 +1,5 @@
 <!--pages/detail-video/index.wxml-->
-<text>pages/detail-video/index.wxml</text>
+<view>
+    <video src='{{mvUrl.url}}' class="video">
+    </video>
+</view>

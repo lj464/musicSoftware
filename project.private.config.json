@@ -9,6 +9,9 @@
         },
         "gamePlugin": {
             "list": []
+        },
+        "miniprogram": {
+            "list": []
         }
     }
 }

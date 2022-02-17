@@ -1,0 +1,23 @@
+{
+  "name": "musicsoftware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lj464/musicSoftware.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lj464/musicSoftware/issues"
+  },
+  "homepage": "https://github.com/lj464/musicSoftware#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.2"
+  }
+}
