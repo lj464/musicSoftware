@@ -1,0 +1,17 @@
+<!--components/area-header/index.wxml-->
+<view class="header">
+    <view class="title">
+        {{title}}
+    </view>
+    <view>
+        <!-- 用户传入内容 -->
+        <view class="conext">
+            <slot></slot>
+        </view>
+        <!-- 默认显示内容 -->
+        <view class="default">
+            <text>更多</text>
+            <image src="../../assets/images/icons/arrow-right.png" mode="widthFix"></image>
+        </view>
+    </view>
+</view>

@@ -7,3 +7,9 @@ export const musicApi = {
         })
     }
 }
+export function getRankings(idx) {
+    return axios.get("/top/list", {
+      idx
+    })
+  }
+  

@@ -2,11 +2,23 @@
     background-color: #fff !important;
   }
 .swiper {
-
+  width: 100%;
 }
 .swiper-item {
 
 }
 .swiper-item image {
     width: 100%
+}
+page {
+  padding: 0 12rpx;
+  box-sizing: border-box;
+}
+.swiper {
+  border-radius: 5px;
+  overflow: hidden;
+  transform: translateY(0);
+}
+.song-list {
+  margin-top: 20rpx;
 }

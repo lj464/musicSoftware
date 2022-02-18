@@ -2,8 +2,8 @@
 import { getBanners } from '../../api/api_music'
 import queryRect from '../../utils/query-rect'
 import throttle from '../../utils/throttle'
-
-const throttleQueryRect = throttle(queryRect, 1000)
+import {rankingStore} from '../../store/index'
+const throttleQueryRect = throttle(queryRect, 10) // 节流
 Page({
 
     /**
@@ -11,11 +11,12 @@ Page({
      */
     data: {
         banners: [],
-        swiperHeight: 145
+        swiperHeight: '',
+        recommendSongs:[]
     },
     // 设宽度
     handleSwiperImageLoaded() {
-        throttleQueryRect('.swiper-image').then(res => {
+        throttleQueryRect('#swiper-image').then(res => {
             this.setData({
                 swiperHeight: res[0].height
             })
@@ -26,6 +27,12 @@ Page({
      */
     onLoad: function (options) {
         this.getPageData()
+        rankingStore.dispatch('getRankingDataAction')
+        rankingStore.onState('hotRanking',(res)=>{
+            if (!res.tracks) return
+            const recommendSongs = res.tracks.slice(0, 6)
+            this.setData({ recommendSongs })
+        })
     },
 
     // 网络请求

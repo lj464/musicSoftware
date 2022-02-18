@@ -1,0 +1,19 @@
+/* components/area-header/index.wxss */
+.header {
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: space-between;
+}
+image {
+    width: 35rpx;
+    vertical-align: middle;
+}
+.title {
+    font-weight: 700;
+}
+.header .default {
+    display: none;
+}
+.header .conext:empty+ .default {
+    display: flex;
+}

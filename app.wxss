@@ -10,4 +10,5 @@
 } 
 page {
   background-color: #fafafa;
+  box-sizing: border-box;
 }
