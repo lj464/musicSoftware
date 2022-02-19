@@ -12,4 +12,9 @@ export function getRankings(idx) {
       idx
     })
   }
+  export function getSongMenuDetail(id) {
+    return axios.get("/playlist/detail/dynamic", {
+      id
+    })
+  }
   

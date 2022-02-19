@@ -7,6 +7,10 @@ Component({
         title:{
            type:String,
            value:"默认值" 
+        },
+        showRight:{
+            type:Boolean,
+            value:true
         }
     },
 
@@ -21,6 +25,8 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        handleClick(){
+            this.triggerEvent("click")
+        }
     }
 })

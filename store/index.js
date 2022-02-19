@@ -1,5 +1,5 @@
-import  rankingStore  from './raking-store'
-console.log(rankingStore,'rankingStore')
+import  {rankingStore,rankingMap}  from './raking-store'
 export {
-  rankingStore
+  rankingStore,
+  rankingMap
 }

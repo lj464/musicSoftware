@@ -1,0 +1,7 @@
+/* pages/song-menu-area/index.wxss */
+.positionx {
+    position: relative;
+    width: 100vw;
+    left: -10rpx;
+    white-space: nowrap;
+}

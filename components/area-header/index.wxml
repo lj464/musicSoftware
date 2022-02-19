@@ -3,7 +3,7 @@
     <view class="title">
         {{title}}
     </view>
-    <view>
+    <view wx:if="{{showRight}}" bindtap="handleClick">
         <!-- 用户传入内容 -->
         <view class="conext">
             <slot></slot>
