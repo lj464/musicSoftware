@@ -10,3 +10,8 @@ export function getSearchSuggest(keywords) {
     type: "mobile"
   })
 }
+export function getSearchResult(keywords) {
+  return axios.get("/search", {
+    keywords
+  })
+}

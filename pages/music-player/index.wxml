@@ -1,0 +1,4 @@
+<!-- 背景 -->
+<image src="{{songs.al.picUrl}}" mode="scaleToFill"  class="bgimage"></image>
+<view class="cover">
+</view>
