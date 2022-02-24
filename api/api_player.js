@@ -4,4 +4,9 @@ export function getSongDetail(ids) {
       ids
     })
   }
+  export function getSongLyric(id) {
+    return axios.get("/lyric", {
+      id
+    })
+  }
   

@@ -8,10 +8,14 @@ function formatCount (counter){
         return counter + ""
       }
 }
+function padLeftZero(time) {
+  time = time + ""
+  return ("00" + time).slice(time.length)
+}
  function formatDuration(duration){
     duration = duration / 1000
-    var mi = Math.floor(duration / 60)
-    var sc = duration % 60
+    var mi = padLeftZero(Math.floor(duration / 60))
+    var sc = padLeftZero(Math.floor(duration % 60))
     return mi + ':' + sc
  }
 module.exports= {

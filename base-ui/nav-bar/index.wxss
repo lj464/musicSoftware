@@ -1,0 +1,27 @@
+/* base-ui/nav-bar/index.wxss */
+.content {
+    height: 44px;
+    color: #fff;
+    line-height: 44px;
+    display: flex;
+    padding:  0 10px;
+}
+.left {
+    width: 250rpx;
+}
+.right {
+    width: 150rpx;
+}
+.title {
+    flex: 1;
+}
+.icon {
+    width: 20px;
+    vertical-align: middle;
+}
+.default {
+    display: none;
+}
+.custom:empty + .default {
+    display: block;
+}

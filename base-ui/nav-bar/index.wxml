@@ -1,0 +1,20 @@
+<!--base-ui/nav-bar/index.wxml-->
+<view style="height:{{statusBarHeight}}px">
+</view>
+<view class="content" style="height: {{navHeight}}px;">
+    <view class="left">
+        <image class="icon" mode="widthFix" src="../../assets/images/icons/arrow-left.png">
+        </image>
+    </view>
+    <view class="title">
+        <view class="custom">
+            <slot></slot>
+        </view>
+        <view class="default">
+            我是默认标题
+        </view>
+    </view>
+    <view class="right">
+        {{rightText}}
+    </view>
+</view>
