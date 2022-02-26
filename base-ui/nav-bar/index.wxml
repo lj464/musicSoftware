@@ -2,7 +2,7 @@
 <view style="height:{{statusBarHeight}}px">
 </view>
 <view class="content" style="height: {{navHeight}}px;">
-    <view class="left">
+    <view class="left" bindtap="handBack">
         <image class="icon" mode="widthFix" src="../../assets/images/icons/arrow-left.png">
         </image>
     </view>

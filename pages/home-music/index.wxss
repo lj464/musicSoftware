@@ -13,6 +13,7 @@
 page {
   padding: 0 12rpx;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 .swiper {
   border-radius: 5px;
@@ -21,4 +22,9 @@ page {
 }
 .song-list {
   margin-top: 20rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }

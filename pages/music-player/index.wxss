@@ -98,3 +98,24 @@ page {
     justify-content: center;
     flex: 1;
   }
+  .active {
+    color: #fff;
+  }
+  .songText {
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+  }
+  .scrollSontext {
+    height: 100%;
+  }
+  
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.activeSongText {
+  color: #26ce8a;
+  font-size: 36rpx;
+}

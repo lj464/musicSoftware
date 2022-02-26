@@ -22,7 +22,9 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        handBack(){
+            this.triggerEvent('click')
+        }
     },
     lifetimes:{
         attached(){
