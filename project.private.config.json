@@ -11,14 +11,7 @@
             "list": []
         },
         "miniprogram": {
-            "list": [
-                {
-                    "name": "pages/music-player/index",
-                    "pathName": "pages/music-player/index",
-                    "query": "id=441491828",
-                    "scene": null
-                }
-            ]
+            "list": []
         }
     }
 }

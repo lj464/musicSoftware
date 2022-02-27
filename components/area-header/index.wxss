@@ -4,9 +4,9 @@
     display: flex;
     justify-content: space-between;
 }
-image {
-    width: 35rpx;
-    vertical-align: middle;
+.header .default image {
+    width: 45rpx;
+    /* vertical-align: middle; */
 }
 .title {
     font-weight: 700;

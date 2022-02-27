@@ -1,6 +1,7 @@
 // pages/detail-songs/index.js
 import { rankingStore } from '../../store/index'
 import { getSongMenuDetail } from '../../api/music'
+import { currentPlaySong} from '../../store/index'
 Page({
 
     /**
@@ -36,7 +37,12 @@ Page({
             rankingStore.offState(this.data.ranking, this.getRankingDataHanlder)
         }
     },
-
+    // 设置播放列表
+    handleSongList(e) {
+        console.log(this.data.songInfo.tracks,'444444444')
+        currentPlaySong.setState('songsList', this.data.songInfo.tracks)
+        currentPlaySong.setState('songIndex', e.currentTarget.dataset.index)
+    },
     getRankingDataHanlder: function (res) {
         this.setData({ songInfo: res })
     }

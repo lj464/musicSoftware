@@ -2,7 +2,8 @@
 import { getBanners, getSongMenu } from '../../api/api_music'
 import queryRect from '../../utils/query-rect'
 import throttle from '../../utils/throttle'
-import { rankingStore ,rankingMap} from '../../store/index'
+import { rankingStore ,rankingMap ,currentPlaySong} from '../../store/index'
+
 const throttleQueryRect = throttle(queryRect, 10) // 节流
 Page({
 
@@ -15,7 +16,14 @@ Page({
         recommendSongs: [],
         hotSongMenu: [],
         recommendSongMenu: [],
-        rankings: { 0: {}, 2: {}, 3: {} }
+        rankings: { 0: {}, 2: {}, 3: {} },
+
+        // 音乐数据
+        currentSong:{
+        },
+        playingName:0,
+        currentTime:0,
+
     },
     // 设宽度
     handleSwiperImageLoaded() {
@@ -24,6 +32,15 @@ Page({
                 swiperHeight: res[0].height
             })
         })
+    },
+    handlePlayBtnClick(){
+        let target = this.data.playingName === 0 ? 1 : 0 // 0 播放
+        if(target ==0){
+            currentPlaySong.dispatch('songsPlay')
+        }else {
+            currentPlaySong.dispatch('songsPause')
+        }
+        currentPlaySong.setState('playingName',target)
     },
     /**
      * 生命周期函数--监听页面加载
@@ -39,6 +56,9 @@ Page({
         rankingStore.onState("newRanking", this.handleRank(0))
         rankingStore.onState("originRanking", this.handleRank(2))
         rankingStore.onState("upRanking", this.handleRank(3))
+        currentPlaySong.dispatch('getSonsText',1842025914)
+        // 获取英语数据
+        this.getMusicData()
     },
     handleRank(idx) {
         return (res) => {
@@ -81,6 +101,25 @@ Page({
             this.setData({ recommendSongMenu: res.playlists })
         })
     },
+    getMusicData(){
+        currentPlaySong.onState('songs',(songs)=>{
+            this.setData({
+                currentSong:songs
+            }) 
+        })
+        currentPlaySong.onState('playingName',(playingName)=>{
+            this.setData({
+                playingName
+            }) 
+        })
+        // 当前时间歌曲时间
+        currentPlaySong.onState('currentTime', (res) => {
+                this.setData({ currentTime: res })
+        })
+        currentPlaySong.onState('durationTime', (durationTime) => {
+            this.setData({ durationTime })
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -89,26 +128,21 @@ Page({
           url: '/pages/detail-search/index',
         })
     },
-    onReady: function () {
-
+    handleSongItemClick(e){
+        currentPlaySong.setState('songsList',this.data.recommendSongs)
+        currentPlaySong.setState('songIndex',e.currentTarget.dataset.index)
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
+    jumpSong(){
+        wx.navigateTo({
+          url: '/pages/music-player/index?id='+this.data.currentSong.id,
+        })
     },
-
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
-
-    },
 
     /**
-     * 生命周期函数--监听页面卸载
+     * 生命周期函数--监听页面卸载1842025914
      */
     onUnload: function () {
 

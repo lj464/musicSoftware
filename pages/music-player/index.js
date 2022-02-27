@@ -43,8 +43,8 @@ Page({
         })
     },
     getBaseData(id) {
-        // 发送请求获取当前播放歌曲信息和持续时间
-        currentPlaySong.dispatch('getSonsText', id)
+        // 发送请求获取当前播放歌曲信息和持续时间 
+        currentPlaySong.dispatch('getSonsText', id , true)
         // 监听当前播放歌曲信息和持续时间
         currentPlaySong.onStates(['songs', 'durationTime'], ({ songs, durationTime }) => {
             if (songs) {
@@ -55,7 +55,7 @@ Page({
             }
             // 发送歌词网络请求获取歌词信息
         })
-        currentPlaySong.dispatch('getSongLyric', id)
+        // currentPlaySong.dispatch('getSongLyric', id)
         // 歌词数组
         currentPlaySong.onState('textArr', (res) => {
             if (res.length) this.setData({ textArr: res })
@@ -138,8 +138,21 @@ Page({
         currentPlaySong.setState('playModeIndex',playModeIndex)
     },
     handlePause(){
-        let target = this.data.playingName === 'pause' ? 1 : 0 // 0 暂停
+        let target = this.data.playingName === 'pause' ? 1 : 0 // 0 播放
+        if(target ==0){
+            currentPlaySong.dispatch('songsPlay')
+
+        }else {
+            currentPlaySong.dispatch('songsPause')
+        }
         currentPlaySong.setState('playingName',target)
+    },
+    // 下一首歌
+    nextSongs(){
+        currentPlaySong.dispatch('changeSong',1) // 1下一首 -1 上一首
+    },
+    preventSongs(){
+        currentPlaySong.dispatch('changeSong',-1) // 1下一首 -1 上一首
     },
     /**
      * 生命周期函数--监听页面卸载

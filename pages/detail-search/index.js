@@ -2,6 +2,8 @@
 import { getSearchHot, getSearchSuggest,getSearchResult } from '../../api/api_search'
 import debounce from '../../utils/debounce'
 import formarNode from '../../utils/formarNode'
+import { currentPlaySong} from '../../store/index'
+
 const degetSearchSuggest = debounce(getSearchSuggest, 500)
 Page({
   data: {
@@ -65,6 +67,11 @@ Page({
     getSearchResult(searchValue).then(res => {
       this.setData({ resultSongs: res.result.songs })
     })
+  },
+  // 设置播放列表
+  handleSongList(e){
+    currentPlaySong.setState('songsList',this.data.resultSongs)
+    currentPlaySong.setState('songIndex',e.currentTarget.dataset.index)
   },
   jumpSong() {
     wx.navigateTo({

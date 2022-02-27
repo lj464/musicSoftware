@@ -1,9 +1,10 @@
 <!--pages/home-music/index.wxml-->
+<wxs src='../../utils/format.wxs' module="format"></wxs>
 <view>
-  <van-search bindtap="jumpSearch"  placeholder="请输入搜索关键词" background='#fafafa' round disabled />
+  <van-search bindtap="jumpSearch" placeholder="请输入搜索关键词" background='#fafafa' round disabled />
 </view>
 
-<!-- 轮播图 -->
+<!-- 轮播图  -->
 <swiper class="swiper" indicator-dots autoplay circular style="height: {{swiperHeight}}px;">
   <block wx:for="{{banners}}" wx:key="bannerId">
     <swiper-item class="swiper-item">
@@ -15,7 +16,7 @@
 </area-header>
 <view class="song-list">
   <block wx:for="{{recommendSongs}}" wx:key="id">
-    <song-item-v1 item="{{item}}"></song-item-v1>
+    <song-item-v1 item="{{item}}" bindtap="handleSongItemClick" data-index="{{index}}"></song-item-v1>
   </block>
 </view>
 
@@ -28,5 +29,18 @@
     <block wx:for="{{rankings}}" wx:key="name">
       <ranking-area-item item="{{item}}" bindtap="handleRankingItemClick" data-idx="{{index}}"></ranking-area-item>
     </block>
+  </view>
+</view>
+<!-- 播放工具栏 -->
+<view class="play-bar" wx:if="{{currentSong.al.picUrl}}" mut-bind:tap="jumpSong">
+  <view class="left">
+    <image class="album album-anim" style="animation-play-state: {{playingName ===0 ? 'runing': 'paused'}};"  mode="aspectFill" src="{{currentSong.al.picUrl}}"></image>
+    <view class="name">{{currentSong.name}}</view>
+    <view style="font-size:13px;margin-left: 5px;">{{format.formatDuration(currentTime)}}/{{format.formatDuration(durationTime)}}</view>
+  </view>
+  <view class="right">
+    <image class="icon play" src="/assets/images/music/{{ playingName ===0 ? 'pause': 'play' }}_icon.png"
+    mut-bind:tap="handlePlayBtnClick"></image>
+    <image class="icon playlist" src="/assets/images/music/playlist_icon.png"></image>
   </view>
 </view>
