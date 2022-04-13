@@ -56,7 +56,6 @@ Page({
         rankingStore.onState("newRanking", this.handleRank(0))
         rankingStore.onState("originRanking", this.handleRank(2))
         rankingStore.onState("upRanking", this.handleRank(3))
-        currentPlaySong.dispatch('getSonsText',1842025914)
         // 获取英语数据
         this.getMusicData()
     },

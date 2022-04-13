@@ -88,3 +88,6 @@ page {
 .album-anim {
   animation: albumRotate 16s linear infinite;
 }
+.barHeght {
+  height: 44px;
+}

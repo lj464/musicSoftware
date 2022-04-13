@@ -32,6 +32,7 @@
   </view>
 </view>
 <!-- 播放工具栏 -->
+<view class="barHeght" wx:if="{{currentSong.al.picUrl}}"></view>
 <view class="play-bar" wx:if="{{currentSong.al.picUrl}}" mut-bind:tap="jumpSong">
   <view class="left">
     <image class="album album-anim" style="animation-play-state: {{playingName ===0 ? 'runing': 'paused'}};"  mode="aspectFill" src="{{currentSong.al.picUrl}}"></image>

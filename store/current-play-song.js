@@ -29,7 +29,7 @@ const currentPlaySong = new HYEventStore({
             ctx.songsId = id
             // 清空上一首歌的内容
             ctx.currentIndex = 0, //歌词下标 
-                ctx.currentLyricText = ''//当前播放歌词
+            ctx.currentLyricText = ''//当前播放歌词
             ctx.currentTime = 0// 歌曲当前时间
             ctx.textscrollTop = 0 //歌词滚动距离
             ctx.song = {} //歌曲信息·
@@ -78,7 +78,7 @@ const currentPlaySong = new HYEventStore({
                 const currentIndex = i - 1
                 if (ctx.currentLyricIndex !== currentIndex) {
                     const currentLyricInfo = textArr[currentIndex] || {}
-                    ctx.currentLyricText = currentLyricInfo?.text ? '' : currentLyricInfo.text
+                    ctx.currentLyricText = currentLyricInfo.text
                     ctx.currentIndex = currentIndex
                     // this.setData({ currentLyricText: currentLyricInfo.text, currentLyricIndex: currentIndex })
                 }

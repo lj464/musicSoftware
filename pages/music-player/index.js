@@ -70,6 +70,7 @@ Page({
         })
         // 歌词
         currentPlaySong.onState('currentLyricText', (res) => {
+            console.log(res,'currentLyricText')
             this.setData({ currentLyricText: res })
         })
         // 当前时间
